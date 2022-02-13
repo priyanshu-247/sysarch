@@ -4,7 +4,8 @@ layout: post
 description: Scalable Service results in increased performance in a manner proportional to resource added.
 categories: [markdown]
 title: Scalibility Basics
-image: images/post_img/post1.png
+# image: images/post_img/post1.png
+comment: true 
 ---
 # Scalibility Basics
 
