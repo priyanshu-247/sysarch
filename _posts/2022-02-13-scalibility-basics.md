@@ -5,7 +5,7 @@ description: Scalable Service results in increased performance in a manner propo
 categories: [markdown]
 title: Scalibility Basics
 # image: images/post_img/post1.png
-comment: true 
+comments: true 
 ---
 # Scalibility Basics
 
