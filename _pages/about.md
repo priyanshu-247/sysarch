@@ -4,8 +4,11 @@ title: About Me
 permalink: /about/
 ---
 
-This website is powered by **[fastpages](https://github.com/fastai/fastpages)** [^1].
+---
+# Priyanshu Krishnan
 
+> ## *Evolving System Architect | Software Developer*
+<p>&nbsp;</p>
 
-
-[^1]:a blogging platform that natively supports Jupyter notebooks in addition to other formats.
+### Site Reliability Engineer in **IBM CLOUD** under *Infrastructure-as-a-service* org. My day-to-day job include working of highly integrated systems and developing software architect to make system reliable.
+---
