@@ -79,7 +79,7 @@ window.onload = wrap_img;
        • <span class="read-time" title="Estimated read time">
     
     
-      1 min read
+      2 min read
     
 </span></p>
 
@@ -107,6 +107,13 @@ window.onload = wrap_img;
 <ul>
 <li class="toc-entry toc-h3"><a href="#path-1">Path 1</a></li>
 <li class="toc-entry toc-h3"><a href="#path-2">Path 2</a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h2"><a href="#cache">Cache</a></li>
+<li class="toc-entry toc-h2"><a href="#asynchronism">Asynchronism</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#async-1">Async #1</a></li>
+<li class="toc-entry toc-h3"><a href="#async-2">Async #2</a></li>
 </ul>
 </li>
 </ul>
@@ -161,6 +168,54 @@ Sooner  your db request will again be slower &amp; slower. <br>
 you will need to introduce <mark style="background-color:SlateBlue;color:white">Cache</mark> .
 </li>
 </ul>
+
+<h2 id="cache">
+<a class="anchor" href="#cache" aria-hidden="true"><span class="octicon octicon-link"></span></a>Cache</h2>
+
+<p><code class="language-plaintext highlighter-rouge">when to use cache </code>: user have to suffer slow page request when a lot of data is fetched from database.<br>
+With “Cache” means <code class="language-plaintext highlighter-rouge">IN-MEMORY</code> like memcached or redis.</p>
+
+<ol>There are two patterns of caching data
+<li>Cached Database Queries</li>
+<li>Cached Object<br>
+<mark style="background-color:MediumSeaGreen;color:white">Idea of objects to cache</mark>
+
+- User Session
+- Fully Rendered Blog Articles
+- Activity Streams
+- User &lt;-&gt; Friend Relationships
+
+</li>
+</ol>
+
+<h2 id="asynchronism">
+<a class="anchor" href="#asynchronism" aria-hidden="true"><span class="octicon octicon-link"></span></a>Asynchronism</h2>
+
+<p><code class="language-plaintext highlighter-rouge">Please wait a while situations</code></p>
+
+<h3 id="async-1">
+<a class="anchor" href="#async-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Async #1</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The First way of aysc processing is the pre build the content and serve when request arrive.
+</code></pre></div></div>
+
+<p>This paradigm used to serve dynamic content page of a website are prebuid <br>
+and locally stored as static website on every change often these computing <br>
+are done on a regular basis, maybe a scirpt which is called every hour by a cronjob. <br>
+the static website are stored in <b>cloud object storage</b>.</p>
+
+<h3 id="async-2">
+<a class="anchor" href="#async-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Async #2</h3>
+<div class="language-plaintext highlighter-rouge"><div class="highlight"><pre class="highlight"><code>The Second way of async processing is the system request the heavy computing task, put it in job queue and free the system to do other task and let notify system when it's done.
+</code></pre></div></div>
+
+<p>User come &amp; start a very heavy computing task <code class="language-plaintext highlighter-rouge">such as order product online</code>, so frontend website sends a job onto a job queue &amp; immediately signals back to the user. the job queue is constantly checked by a bunck of workers for new job, the worker do work and signal work done to frontend.</p>
+
+<hr>
+
+<p>We have come to end of blog, Please let us know for any suggestions and queries in comment box.<br></p>
+
+<p><b> Stay tunned . Amazing Work Comming Soon <b></b></b></p>
+
 
   </div><a class="u-url" href="/systemscale/markdown/2022/02/13/scalibility-basics.html" hidden></a>
 </article>
