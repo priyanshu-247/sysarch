@@ -19,7 +19,7 @@ Every server contains exactly `SAME CODEBASE` and `DON NOT STORE` any user-relat
 
 <br>
 
-## Databse 
+## Database 
 
 We can server *multiple concurrent* request using horizontal scaling <br>
 Multiple request will lead to *lots of read/write request* to database which eventually lead to <mark style="background-color:SlateBlue;color:white">slowness</mark> of app.
@@ -28,8 +28,7 @@ Multiple request will lead to *lots of read/write request* to database which eve
 <ul>
 
 <li> 
-
-### Path 1
+<h3>Path 1</h3>
 Do Master Slave Replication <br>
 (Read from slave, write to master)<br>
 Upgrade master server by adding more RAM.
@@ -42,8 +41,7 @@ Upgrade master server by adding more RAM.
 </li>
 
 <li>
-
-### Path 2
+<h3>Path 2</h3>
 Switch to NOSql, now joins will need to be done in your app. <br>
 Sooner  your db request will again be slower & slower. <br>
 you will need to introduce <mark style="background-color:SlateBlue;color:white">Cache</mark> .
