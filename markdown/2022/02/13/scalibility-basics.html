@@ -103,7 +103,12 @@ window.onload = wrap_img;
 <li class="toc-entry toc-h3"><a href="#first-golden-rule-of-scalibility">First Golden Rule of Scalibility</a></li>
 </ul>
 </li>
-<li class="toc-entry toc-h2"><a href="#databse">Databse</a></li>
+<li class="toc-entry toc-h2"><a href="#database">Database</a>
+<ul>
+<li class="toc-entry toc-h3"><a href="#path-1">Path 1</a></li>
+<li class="toc-entry toc-h3"><a href="#path-2">Path 2</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul><h1 id="scalibility-basics">
@@ -125,8 +130,8 @@ window.onload = wrap_img;
 
 <p><br></p>
 
-<h2 id="databse">
-<a class="anchor" href="#databse" aria-hidden="true"><span class="octicon octicon-link"></span></a>Databse</h2>
+<h2 id="database">
+<a class="anchor" href="#database" aria-hidden="true"><span class="octicon octicon-link"></span></a>Database</h2>
 
 <p>We can server <em>multiple concurrent</em> request using horizontal scaling <br>
 Multiple request will lead to <em>lots of read/write request</em> to database which eventually lead to <mark style="background-color:SlateBlue;color:white">slowness</mark> of app.</p>
@@ -135,8 +140,8 @@ Multiple request will lead to <em>lots of read/write request</em> to database wh
 <ul>
 
 <li> 
-
-### Path 1
+<h3>
+<a class="anchor" href="#path-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path 1</h3>
 Do Master Slave Replication <br>
 (Read from slave, write to master)<br>
 Upgrade master server by adding more RAM.
@@ -149,8 +154,8 @@ Upgrade master server by adding more RAM.
 </li>
 
 <li>
-
-### Path 2
+<h3>
+<a class="anchor" href="#path-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path 2</h3>
 Switch to NOSql, now joins will need to be done in your app. <br>
 Sooner  your db request will again be slower &amp; slower. <br>
 you will need to introduce <mark style="background-color:SlateBlue;color:white">Cache</mark> .
