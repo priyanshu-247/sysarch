@@ -4,20 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Tags | SystemScale</title>
+<title>Asynchronous Basics | SystemScale</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Tags" />
+<meta property="og:title" content="Asynchronous Basics" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="blogging for system architecture for large scale." />
-<meta property="og:description" content="blogging for system architecture for large scale." />
-<link rel="canonical" href="https://tpriyanshukrishnan.github.io/systemscale/categories/" />
-<meta property="og:url" content="https://tpriyanshukrishnan.github.io/systemscale/categories/" />
+<meta name="description" content="Asynchronous routines are able to “pause” while waiting on their ultimate result and let other routines run in the meantime." />
+<meta property="og:description" content="Asynchronous routines are able to “pause” while waiting on their ultimate result and let other routines run in the meantime." />
+<link rel="canonical" href="https://tpriyanshukrishnan.github.io/systemscale/markdown/2022/02/21/asynchronous-extras.html" />
+<meta property="og:url" content="https://tpriyanshukrishnan.github.io/systemscale/markdown/2022/02/21/asynchronous-extras.html" />
 <meta property="og:site_name" content="SystemScale" />
-<meta property="og:type" content="website" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-02-21T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Tags" />
+<meta property="twitter:title" content="Asynchronous Basics" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"blogging for system architecture for large scale.","headline":"Tags","url":"https://tpriyanshukrishnan.github.io/systemscale/categories/"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-02-21T00:00:00-06:00","datePublished":"2022-02-21T00:00:00-06:00","description":"Asynchronous routines are able to “pause” while waiting on their ultimate result and let other routines run in the meantime.","headline":"Asynchronous Basics","mainEntityOfPage":{"@type":"WebPage","@id":"https://tpriyanshukrishnan.github.io/systemscale/markdown/2022/02/21/asynchronous-extras.html"},"url":"https://tpriyanshukrishnan.github.io/systemscale/markdown/2022/02/21/asynchronous-extras.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/systemscale/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://tpriyanshukrishnan.github.io/systemscale/feed.xml" title="SystemScale" /><link rel="shortcut icon" type="image/x-icon" href="/systemscale/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -69,51 +70,47 @@ window.onload = wrap_img;
 </header>
 <main class="page-content" aria-label="Content">
       <div class="wrapper">
-        <div class="home">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">Asynchronous Basics</h1><p class="page-description">Asynchronous routines are able to “pause” while waiting on their ultimate result and let other routines run in the meantime.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-02-21T00:00:00-06:00" itemprop="datePublished">
+        Feb 21, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      1 min read
+    
+</span></p>
 
-<h2>Contents</h2>
-
-  
-  
-  
-
-  <ul>
-  
-    <li><a href="#jupyter">jupyter</a></li>
-  
-    <li><a href="#markdown">markdown</a></li>
-  
-  </ul>
-
-  
-      <h3 id ="jupyter"><i class="fas fa-tags category-tags-icon"></i></i> jupyter</h3>
-      <a name="jupyter"></a>
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
       
+        <a class="category-tags-link" href="/systemscale/categories/#markdown">markdown</a>
         
       
-  
-      <h3 id ="markdown"><i class="fas fa-tags category-tags-icon"></i></i> markdown</h3>
-      <a name="markdown"></a>
-      
-        
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/systemscale/markdown/2022/02/21/asynchronous-basics.html">Asynchronous Basics</a>  • Feb 21, 2022</p>
-        </article>
-        
-      
-        <article class="archive-item">
-          <p class="post-meta post-meta-title"><a class="page-meta" href="/systemscale/markdown/2022/02/13/scalibility-basics.html">Scalibility Basics</a>  • Feb 13, 2022</p>
-        </article>
-        
-      
-  
+      </p>
+    
 
+    </header>
 
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+</ul><p>Note: Threaded programs allow you to create multiple, parallel paths of execution that all share the same memory space. This is both an advantage and a disadvantage. Any memory shared between threads is subject to one or more threads trying to use the same shared memory at the same time. This can lead to data corruption, data read in an invalid state, and data that’s just messy in general.</p>
 
+<p>In threaded programming, the context switch happens under system control, not the programmer. The system controls when to switch contexts and when to give threads access to shared data, thereby changing the context of how the memory is being used. All of these kinds of problems are manageable in threaded code, but it’s difficult to get right, and hard to debug when it’s wrong.</p>
 
-</div>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tpriyanshukrishnan/systemscale"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/systemscale/markdown/2022/02/21/asynchronous-extras.html" hidden></a>
+</article>
+
       </div>
     </main><footer class="site-footer h-card">
   <data class="u-url" href="/systemscale/"></data>
