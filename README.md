@@ -1,3 +1,3 @@
-https://tpriyanshukrishnan.github.io/systemscale/
+https://tpriyanshukrishnan.github.io/sysarch/
 
 # SYSARCH BLOG
