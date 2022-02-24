@@ -1,1 +1,1 @@
-Sitemap: https://www.sysarch.in//sitemap.xml
+Sitemap: https://tpriyanshukrishnan.github.io/systemscale/sitemap.xml
