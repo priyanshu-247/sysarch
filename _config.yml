@@ -6,15 +6,15 @@
 # https://learn-the-web.algonquindesign.ca/topics/markdown-yaml-cheat-sheet/#yaml
 # https://learnxinyminutes.com/docs/yaml/
 
-title: sysarch
+title: SystemScale
 description: blogging for system architecture for large scale.
 github_username: tpriyanshukrishnan
 # you can comment the below line out if your repo name is not different than your baseurl
-github_repo: "sysarch"
+github_repo: "systemscale"
 
 # OPTIONAL: override baseurl and url if using a custom domain
 # Note: leave out the trailing / from this value. 
-url: "https://www.sysarch.in" # the base hostname & protocol for your site, e.g. http://example.com
+url: "https://tpriyanshukrishnan.github.io" # the base hostname & protocol for your site, e.g. http://example.com
 
 ###########################################################
 #########  Special Instructions for baseurl ###############
@@ -34,12 +34,12 @@ url: "https://www.sysarch.in" # the base hostname & protocol for your site, e.g.
 #
 # 3. You must replace the parameter `baseurl` in _action_files/settings.ini with the same value as you set here but WITHOUT QUOTES.
 #
-baseurl: "" # the subpath of your site, e.g. "/blog".
+baseurl: "/systemscale" # the subpath of your site, e.g. "/blog".
 
 # Github and twitter are optional:
 minima:
   social_links:
-    twitter: 
+    twitter: fastdotai
     github: tpriyanshukrishnan
 
 # Set this to true to get LaTeX math equation support
