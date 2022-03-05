@@ -8,17 +8,17 @@
 <meta name="generator" content="Jekyll v4.1.1" />
 <meta property="og:title" content="Dynamic Programming Snippets" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="blogging for system architecture for large scale." />
-<meta property="og:description" content="blogging for system architecture for large scale." />
-<link rel="canonical" href="https://www.sysarch.in/2022/03/06/Dynamic-Programming.html" />
-<meta property="og:url" content="https://www.sysarch.in/2022/03/06/Dynamic-Programming.html" />
+<meta name="description" content="A Python Code Snippets for problem which have overlapping and optimal problem space" />
+<meta property="og:description" content="A Python Code Snippets for problem which have overlapping and optimal problem space" />
+<link rel="canonical" href="https://www.sysarch.in/algorithms/2022/03/06/Dynamic-Programming.html" />
+<meta property="og:url" content="https://www.sysarch.in/algorithms/2022/03/06/Dynamic-Programming.html" />
 <meta property="og:site_name" content="sysarch" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-03-06T00:00:00-06:00" />
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Dynamic Programming Snippets" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-06T00:00:00-06:00","datePublished":"2022-03-06T00:00:00-06:00","description":"blogging for system architecture for large scale.","headline":"Dynamic Programming Snippets","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sysarch.in/2022/03/06/Dynamic-Programming.html"},"url":"https://www.sysarch.in/2022/03/06/Dynamic-Programming.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-06T00:00:00-06:00","datePublished":"2022-03-06T00:00:00-06:00","description":"A Python Code Snippets for problem which have overlapping and optimal problem space","headline":"Dynamic Programming Snippets","mainEntityOfPage":{"@type":"WebPage","@id":"https://www.sysarch.in/algorithms/2022/03/06/Dynamic-Programming.html"},"url":"https://www.sysarch.in/algorithms/2022/03/06/Dynamic-Programming.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://www.sysarch.in/feed.xml" title="sysarch" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Dynamic Programming Snippets</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-06T00:00:00-06:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">Dynamic Programming Snippets</h1><p class="page-description">A Python Code Snippets for problem which have overlapping and optimal problem space</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-06T00:00:00-06:00" itemprop="datePublished">
         Mar 6, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -83,6 +83,13 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#algorithms">algorithms</a>
+        
+      
+      </p>
     
 
     
@@ -116,7 +123,37 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Rod-Cutting">Rod Cutting </a></li>
+<li class="toc-entry toc-h1"><a href="#Max-Non-Adjacent-Sum">Max Non Adjacent Sum </a></li>
+<li class="toc-entry toc-h1"><a href="#Climb-Stairs-with-variable-jumps">Climb Stairs with variable jumps </a></li>
+<li class="toc-entry toc-h1"><a href="#Climb-Stairs-with-variable-jumps">Climb Stairs with variable jumps </a></li>
+<li class="toc-entry toc-h1"><a href="#Climb-Stairs-with-minimum-move">Climb Stairs with minimum move </a></li>
+<li class="toc-entry toc-h1"><a href="#Minimum-Cost-Path">Minimum Cost Path </a></li>
+<li class="toc-entry toc-h1"><a href="#Path-with-maximum-gold">Path with maximum gold </a></li>
+<li class="toc-entry toc-h1"><a href="#Target-Sum-Subsets">Target Sum Subsets </a></li>
+<li class="toc-entry toc-h1"><a href="#Coin-Change-Combination">Coin Change Combination </a></li>
+<li class="toc-entry toc-h1"><a href="#Coin-Change-Permutation">Coin Change Permutation </a></li>
+<li class="toc-entry toc-h1"><a href="#0-1-Knapsack">0-1 Knapsack </a></li>
+<li class="toc-entry toc-h1"><a href="#Unbounded-Knapsack">Unbounded Knapsack </a></li>
+<li class="toc-entry toc-h1"><a href="#Binary-String-[Not-two-consecutive-zeros-allowes]">Binary String [Not two consecutive zeros allowes] </a></li>
+<li class="toc-entry toc-h1"><a href="#Paint-House">Paint House </a></li>
+<li class="toc-entry toc-h1"><a href="#Paint-House-Multi-Color">Paint House Multi Color </a></li>
+<li class="toc-entry toc-h1"><a href="#Paint-Fence">Paint Fence </a></li>
+<li class="toc-entry toc-h1"><a href="#Tilling-with-2-*-1-tiles">Tilling with 2 * 1 tiles </a></li>
+<li class="toc-entry toc-h1"><a href="#Tilling-with-M*1-tiles">Tilling with M*1 tiles </a></li>
+<li class="toc-entry toc-h1"><a href="#Friend-Pairing">Friend Pairing </a></li>
+<li class="toc-entry toc-h1"><a href="#Best-Time-to-Buy-&-Sell-Stock-[-One-Transaction-]">Best Time to Buy &amp; Sell Stock [ One Transaction ] </a></li>
+<li class="toc-entry toc-h1"><a href="#Best-Time-to-Buy-and-Sell-Stock-(Infinite-Transaction)">Best Time to Buy and Sell Stock (Infinite Transaction) </a></li>
+<li class="toc-entry toc-h1"><a href="#Buy-and-Sell-Stock-with-Cooldown-state">Buy and Sell Stock with Cooldown state </a></li>
+<li class="toc-entry toc-h1"><a href="#Buy-and-Sell-Stocks-(-Two-Transactions-)">Buy and Sell Stocks ( Two Transactions ) </a></li>
+<li class="toc-entry toc-h1"><a href="#Best-Time-to-Buy-and-Sell-Stocks-(-K-Transactions-allowed-)">Best Time to Buy and Sell Stocks ( K Transactions allowed ) </a></li>
+<li class="toc-entry toc-h1"><a href="#Highway-Billboard">Highway Billboard </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#🙏-Thanks-for-visiting-dynamic-programming-notebook.">🙏 Thanks for visiting dynamic programming notebook. </a></li>
+</ul>
+</li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -125,9 +162,12 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Rod-Cutting">Rod Cutting<a class="anchor-link" href="#Rod-Cutting"> </a></h2>
+<h1 id="Rod-Cutting">
+<a class="anchor" href="#Rod-Cutting" aria-hidden="true"><span class="octicon octicon-link"></span></a>Rod Cutting<a class="anchor-link" href="#Rod-Cutting"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -144,16 +184,16 @@ window.onload = wrap_img;
   <span class="n">max_obtain_at_length</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">x</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">total_length</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
   <span class="n">max_obtain_at_length</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
   <span class="k">for</span> <span class="n">curr_len</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">total_length</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;curr_len&quot;</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span><span class="n">curr_len</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"curr_len"</span><span class="p">,</span><span class="s2">":"</span><span class="p">,</span><span class="n">curr_len</span><span class="p">)</span>
     <span class="n">max_at_curr_len</span><span class="o">=-</span><span class="n">math</span><span class="o">.</span><span class="n">inf</span>
     <span class="k">for</span> <span class="n">iter_len</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">curr_len</span><span class="p">):</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span><span class="s2">&quot;iter_len :&quot;</span><span class="p">,</span><span class="n">iter_len</span><span class="p">)</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span><span class="s2">&quot;rod_price_list[&quot;</span><span class="p">,</span><span class="n">iter_len</span><span class="p">,</span><span class="s2">&quot;]=&quot;</span><span class="p">,</span><span class="n">rod_price_list</span><span class="p">[</span><span class="n">iter_len</span><span class="p">])</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;  &quot;</span><span class="p">,</span><span class="s2">&quot;max_obtain_at_length[&quot;</span><span class="p">,(</span><span class="n">curr_len</span><span class="o">-</span><span class="n">iter_len</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="s2">&quot;]=&quot;</span><span class="p">,</span><span class="n">max_obtain_at_length</span><span class="p">[</span><span class="n">curr_len</span><span class="o">-</span><span class="n">iter_len</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span><span class="s2">"iter_len :"</span><span class="p">,</span><span class="n">iter_len</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span><span class="s2">"rod_price_list["</span><span class="p">,</span><span class="n">iter_len</span><span class="p">,</span><span class="s2">"]="</span><span class="p">,</span><span class="n">rod_price_list</span><span class="p">[</span><span class="n">iter_len</span><span class="p">])</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"  "</span><span class="p">,</span><span class="s2">"max_obtain_at_length["</span><span class="p">,(</span><span class="n">curr_len</span><span class="o">-</span><span class="n">iter_len</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="s2">"]="</span><span class="p">,</span><span class="n">max_obtain_at_length</span><span class="p">[</span><span class="n">curr_len</span><span class="o">-</span><span class="n">iter_len</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
       <span class="n">max_at_curr_len</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_at_curr_len</span><span class="p">,</span><span class="n">rod_price_list</span><span class="p">[</span><span class="n">iter_len</span><span class="p">]</span><span class="o">+</span><span class="n">max_obtain_at_length</span><span class="p">[</span><span class="n">curr_len</span><span class="o">-</span><span class="n">iter_len</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-      <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;    &quot;</span><span class="p">,</span><span class="s2">&quot;max_at_curr_len&quot;</span><span class="p">,</span><span class="s2">&quot;:&quot;</span><span class="p">,</span><span class="n">max_at_curr_len</span><span class="p">)</span>
+      <span class="nb">print</span><span class="p">(</span><span class="s2">"    "</span><span class="p">,</span><span class="s2">"max_at_curr_len"</span><span class="p">,</span><span class="s2">":"</span><span class="p">,</span><span class="n">max_at_curr_len</span><span class="p">)</span>
     <span class="n">max_obtain_at_length</span><span class="p">[</span><span class="n">curr_len</span><span class="p">]</span> <span class="o">=</span> <span class="n">max_at_curr_len</span>
-    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;max_obtain_at_lentgth[&quot;</span><span class="p">,</span><span class="n">curr_len</span><span class="p">,</span><span class="s2">&quot;]=&quot;</span><span class="p">,</span><span class="n">max_obtain_at_length</span><span class="p">[</span><span class="n">curr_len</span><span class="p">])</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">"max_obtain_at_lentgth["</span><span class="p">,</span><span class="n">curr_len</span><span class="p">,</span><span class="s2">"]="</span><span class="p">,</span><span class="n">max_obtain_at_length</span><span class="p">[</span><span class="n">curr_len</span><span class="p">])</span>
   <span class="k">return</span> <span class="n">max_obtain_at_length</span>
 
 <span class="n">rod_price_for_differnet_length</span> <span class="o">=</span> <span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">]</span>
@@ -168,9 +208,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Max-Non-Adjacent-Sum">Max Non Adjacent Sum<a class="anchor-link" href="#Max-Non-Adjacent-Sum"> </a></h1>
+<h1 id="Max-Non-Adjacent-Sum">
+<a class="anchor" href="#Max-Non-Adjacent-Sum" aria-hidden="true"><span class="octicon octicon-link"></span></a>Max Non Adjacent Sum<a class="anchor-link" href="#Max-Non-Adjacent-Sum"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -216,9 +259,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Climb-Stairs-with-variable-jumps">Climb Stairs with variable jumps<a class="anchor-link" href="#Climb-Stairs-with-variable-jumps"> </a></h1>
+<h1 id="Climb-Stairs-with-variable-jumps">
+<a class="anchor" href="#Climb-Stairs-with-variable-jumps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Climb Stairs with variable jumps<a class="anchor-link" href="#Climb-Stairs-with-variable-jumps"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -265,9 +311,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Climb-Stairs-with-variable-jumps">Climb Stairs with variable jumps<a class="anchor-link" href="#Climb-Stairs-with-variable-jumps"> </a></h1>
+<h1 id="Climb-Stairs-with-variable-jumps">
+<a class="anchor" href="#Climb-Stairs-with-variable-jumps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Climb Stairs with variable jumps<a class="anchor-link" href="#Climb-Stairs-with-variable-jumps"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -312,9 +361,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Climb-Stairs-with-minimum-move">Climb Stairs with minimum move<a class="anchor-link" href="#Climb-Stairs-with-minimum-move"> </a></h1>
+<h1 id="Climb-Stairs-with-minimum-move">
+<a class="anchor" href="#Climb-Stairs-with-minimum-move" aria-hidden="true"><span class="octicon octicon-link"></span></a>Climb Stairs with minimum move<a class="anchor-link" href="#Climb-Stairs-with-minimum-move"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -364,9 +416,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Minimum-Cost-Path">Minimum Cost Path<a class="anchor-link" href="#Minimum-Cost-Path"> </a></h1>
+<h1 id="Minimum-Cost-Path">
+<a class="anchor" href="#Minimum-Cost-Path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Minimum Cost Path<a class="anchor-link" href="#Minimum-Cost-Path"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -424,9 +479,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Path-with-maximum-gold">Path with maximum gold<a class="anchor-link" href="#Path-with-maximum-gold"> </a></h1>
+<h1 id="Path-with-maximum-gold">
+<a class="anchor" href="#Path-with-maximum-gold" aria-hidden="true"><span class="octicon octicon-link"></span></a>Path with maximum gold<a class="anchor-link" href="#Path-with-maximum-gold"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -484,9 +542,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Target-Sum-Subsets">Target Sum Subsets<a class="anchor-link" href="#Target-Sum-Subsets"> </a></h1>
+<h1 id="Target-Sum-Subsets">
+<a class="anchor" href="#Target-Sum-Subsets" aria-hidden="true"><span class="octicon octicon-link"></span></a>Target Sum Subsets<a class="anchor-link" href="#Target-Sum-Subsets"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -508,7 +569,7 @@ window.onload = wrap_img;
       <span class="k">elif</span> <span class="n">j</span> <span class="o">==</span><span class="mi">0</span><span class="p">:</span>
         <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
       <span class="k">else</span><span class="p">:</span>
-        <span class="c1"># when current number don&#39;t participate formation </span>
+        <span class="c1"># when current number don't participate formation </span>
         <span class="k">if</span> <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="kc">True</span><span class="p">:</span>
           <span class="n">dp</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="kc">True</span>
         <span class="c1"># when current number participate in sum formation </span>
@@ -552,9 +613,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Coin-Change-Combination">Coin Change Combination<a class="anchor-link" href="#Coin-Change-Combination"> </a></h1>
+<h1 id="Coin-Change-Combination">
+<a class="anchor" href="#Coin-Change-Combination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coin Change Combination<a class="anchor-link" href="#Coin-Change-Combination"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -603,9 +667,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Coin-Change-Permutation">Coin Change Permutation<a class="anchor-link" href="#Coin-Change-Permutation"> </a></h1>
+<h1 id="Coin-Change-Permutation">
+<a class="anchor" href="#Coin-Change-Permutation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Coin Change Permutation<a class="anchor-link" href="#Coin-Change-Permutation"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -658,9 +725,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="0-1-Knapsack">0-1 Knapsack<a class="anchor-link" href="#0-1-Knapsack"> </a></h1>
+<h1 id="0-1-Knapsack">
+<a class="anchor" href="#0-1-Knapsack" aria-hidden="true"><span class="octicon octicon-link"></span></a>0-1 Knapsack<a class="anchor-link" href="#0-1-Knapsack"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -712,9 +782,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Unbounded-Knapsack">Unbounded Knapsack<a class="anchor-link" href="#Unbounded-Knapsack"> </a></h1>
+<h1 id="Unbounded-Knapsack">
+<a class="anchor" href="#Unbounded-Knapsack" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unbounded Knapsack<a class="anchor-link" href="#Unbounded-Knapsack"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -765,9 +838,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Binary-String-[Not-two-consecutive-zeros-allowes]">Binary String [Not two consecutive zeros allowes]<a class="anchor-link" href="#Binary-String-[Not-two-consecutive-zeros-allowes]"> </a></h1>
+<h1 id="Binary-String-[Not-two-consecutive-zeros-allowes]">
+<a class="anchor" href="#Binary-String-%5BNot-two-consecutive-zeros-allowes%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Binary String [Not two consecutive zeros allowes]<a class="anchor-link" href="#Binary-String-%5BNot-two-consecutive-zeros-allowes%5D"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -814,9 +890,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Paint-House">Paint House<a class="anchor-link" href="#Paint-House"> </a></h1>
+<h1 id="Paint-House">
+<a class="anchor" href="#Paint-House" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paint House<a class="anchor-link" href="#Paint-House"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -873,9 +952,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Paint-House-Multi-Color">Paint House Multi Color<a class="anchor-link" href="#Paint-House-Multi-Color"> </a></h1>
+<h1 id="Paint-House-Multi-Color">
+<a class="anchor" href="#Paint-House-Multi-Color" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paint House Multi Color<a class="anchor-link" href="#Paint-House-Multi-Color"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -936,9 +1018,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Paint-Fence">Paint Fence<a class="anchor-link" href="#Paint-Fence"> </a></h1>
+<h1 id="Paint-Fence">
+<a class="anchor" href="#Paint-Fence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Paint Fence<a class="anchor-link" href="#Paint-Fence"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -987,9 +1072,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tilling-with-2-*-1-tiles">Tilling with 2 * 1 tiles<a class="anchor-link" href="#Tilling-with-2-*-1-tiles"> </a></h1>
+<h1 id="Tilling-with-2-*-1-tiles">
+<a class="anchor" href="#Tilling-with-2-*-1-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tilling with 2 * 1 tiles<a class="anchor-link" href="#Tilling-with-2-*-1-tiles"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1034,9 +1122,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Tilling-with-M*1-tiles">Tilling with M*1 tiles<a class="anchor-link" href="#Tilling-with-M*1-tiles"> </a></h1>
+<h1 id="Tilling-with-M*1-tiles">
+<a class="anchor" href="#Tilling-with-M*1-tiles" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tilling with M*1 tiles<a class="anchor-link" href="#Tilling-with-M*1-tiles"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1085,9 +1176,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Friend-Pairing">Friend Pairing<a class="anchor-link" href="#Friend-Pairing"> </a></h1>
+<h1 id="Friend-Pairing">
+<a class="anchor" href="#Friend-Pairing" aria-hidden="true"><span class="octicon octicon-link"></span></a>Friend Pairing<a class="anchor-link" href="#Friend-Pairing"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1132,9 +1226,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Best-Time-to-Buy-&amp;-Sell-Stock-[-One-Transaction-]">Best Time to Buy &amp; Sell Stock [ One Transaction ]<a class="anchor-link" href="#Best-Time-to-Buy-&amp;-Sell-Stock-[-One-Transaction-]"> </a></h1>
+<h1 id="Best-Time-to-Buy-&amp;-Sell-Stock-[-One-Transaction-]">
+<a class="anchor" href="#Best-Time-to-Buy-&amp;-Sell-Stock-%5B-One-Transaction-%5D" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best Time to Buy &amp; Sell Stock [ One Transaction ]<a class="anchor-link" href="#Best-Time-to-Buy-&amp;-Sell-Stock-%5B-One-Transaction-%5D"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1181,9 +1278,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Best-Time-to-Buy-and-Sell-Stock-(Infinite-Transaction)">Best Time to Buy and Sell Stock (Infinite Transaction)<a class="anchor-link" href="#Best-Time-to-Buy-and-Sell-Stock-(Infinite-Transaction)"> </a></h1>
+<h1 id="Best-Time-to-Buy-and-Sell-Stock-(Infinite-Transaction)">
+<a class="anchor" href="#Best-Time-to-Buy-and-Sell-Stock-(Infinite-Transaction)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best Time to Buy and Sell Stock (Infinite Transaction)<a class="anchor-link" href="#Best-Time-to-Buy-and-Sell-Stock-(Infinite-Transaction)"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1235,9 +1335,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Buy-and-Sell-Stock-with-Cooldown-state">Buy and Sell Stock with Cooldown state<a class="anchor-link" href="#Buy-and-Sell-Stock-with-Cooldown-state"> </a></h1>
+<h1 id="Buy-and-Sell-Stock-with-Cooldown-state">
+<a class="anchor" href="#Buy-and-Sell-Stock-with-Cooldown-state" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buy and Sell Stock with Cooldown state<a class="anchor-link" href="#Buy-and-Sell-Stock-with-Cooldown-state"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1298,9 +1401,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Buy-and-Sell-Stocks-(-Two-Transactions-)">Buy and Sell Stocks ( Two Transactions )<a class="anchor-link" href="#Buy-and-Sell-Stocks-(-Two-Transactions-)"> </a></h1>
+<h1 id="Buy-and-Sell-Stocks-(-Two-Transactions-)">
+<a class="anchor" href="#Buy-and-Sell-Stocks-(-Two-Transactions-)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Buy and Sell Stocks ( Two Transactions )<a class="anchor-link" href="#Buy-and-Sell-Stocks-(-Two-Transactions-)"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1355,16 +1461,23 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Best-Time-to-Buy-and-Sell-Stocks-(-K-Transactions-allowed-)">Best Time to Buy and Sell Stocks ( K Transactions allowed )<a class="anchor-link" href="#Best-Time-to-Buy-and-Sell-Stocks-(-K-Transactions-allowed-)"> </a></h1><p><a href="https://www.youtube.com/watch?v=3YILP-PdEJA&amp;list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy&amp;index=35&amp;ab_channel=Pepcoding">review required</a></p>
+<h1 id="Best-Time-to-Buy-and-Sell-Stocks-(-K-Transactions-allowed-)">
+<a class="anchor" href="#Best-Time-to-Buy-and-Sell-Stocks-(-K-Transactions-allowed-)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Best Time to Buy and Sell Stocks ( K Transactions allowed )<a class="anchor-link" href="#Best-Time-to-Buy-and-Sell-Stocks-(-K-Transactions-allowed-)"> </a>
+</h1>
+<p><a href="https://www.youtube.com/watch?v=3YILP-PdEJA&amp;list=PL-Jc9J83PIiG8fE6rj9F5a6uyQ5WPdqKy&amp;index=35&amp;ab_channel=Pepcoding">review required</a></p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Highway-Billboard">Highway Billboard<a class="anchor-link" href="#Highway-Billboard"> </a></h1>
+<h1 id="Highway-Billboard">
+<a class="anchor" href="#Highway-Billboard" aria-hidden="true"><span class="octicon octicon-link"></span></a>Highway Billboard<a class="anchor-link" href="#Highway-Billboard"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -1416,9 +1529,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="&#128591;-Thanks-for-visiting-dynamic-programming-notebook.">&#128591; Thanks for visiting dynamic programming notebook.<a class="anchor-link" href="#&#128591;-Thanks-for-visiting-dynamic-programming-notebook."> </a></h2>
+<h2 id="🙏-Thanks-for-visiting-dynamic-programming-notebook.">
+<a class="anchor" href="#%F0%9F%99%8F-Thanks-for-visiting-dynamic-programming-notebook." aria-hidden="true"><span class="octicon octicon-link"></span></a>🙏 Thanks for visiting dynamic programming notebook.<a class="anchor-link" href="#%F0%9F%99%8F-Thanks-for-visiting-dynamic-programming-notebook."> </a>
+</h2>
 </div>
 </div>
 </div>
@@ -1426,7 +1542,15 @@ window.onload = wrap_img;
 
 
 
-  </div><a class="u-url" href="/2022/03/06/Dynamic-Programming.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tpriyanshukrishnan/sysarch"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/algorithms/2022/03/06/Dynamic-Programming.html" hidden></a>
 </article>
 
       </div>
