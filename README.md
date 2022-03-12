@@ -1,3 +1,3 @@
-https://www.sysarch.in
+https://blog.sysarch.in
 
 # SYSARCH BLOG
