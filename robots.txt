@@ -1,1 +1,1 @@
-Sitemap: https://www.sysarch.in/blog/sitemap.xml
+Sitemap: https://blog.sysarch.in/sitemap.xml
