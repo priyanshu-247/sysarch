@@ -4,21 +4,21 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
-<title>Build Graph | sysarch</title>
+<title>💪 Mighty Graph | sysarch</title>
 <meta name="generator" content="Jekyll v4.1.1" />
-<meta property="og:title" content="Build Graph" />
+<meta property="og:title" content="💪 Mighty Graph" />
 <meta property="og:locale" content="en_US" />
-<meta name="description" content="blogging for system architecture for large scale." />
-<meta property="og:description" content="blogging for system architecture for large scale." />
-<link rel="canonical" href="https://blog.sysarch.in/2022/03/24/Mighty-Graph.html" />
-<meta property="og:url" content="https://blog.sysarch.in/2022/03/24/Mighty-Graph.html" />
+<meta name="description" content="A graph data structure is a collection of nodes that have data and are connected to other nodes." />
+<meta property="og:description" content="A graph data structure is a collection of nodes that have data and are connected to other nodes." />
+<link rel="canonical" href="https://blog.sysarch.in/algorithms/graph/2022/03/24/Mighty-Graph.html" />
+<meta property="og:url" content="https://blog.sysarch.in/algorithms/graph/2022/03/24/Mighty-Graph.html" />
 <meta property="og:site_name" content="sysarch" />
 <meta property="og:type" content="article" />
 <meta property="article:published_time" content="2022-03-24T00:00:00-05:00" />
 <meta name="twitter:card" content="summary" />
-<meta property="twitter:title" content="Build Graph" />
+<meta property="twitter:title" content="💪 Mighty Graph" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-24T00:00:00-05:00","datePublished":"2022-03-24T00:00:00-05:00","description":"blogging for system architecture for large scale.","headline":"Build Graph","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.sysarch.in/2022/03/24/Mighty-Graph.html"},"url":"https://blog.sysarch.in/2022/03/24/Mighty-Graph.html"}</script>
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-24T00:00:00-05:00","datePublished":"2022-03-24T00:00:00-05:00","description":"A graph data structure is a collection of nodes that have data and are connected to other nodes.","headline":"💪 Mighty Graph","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.sysarch.in/algorithms/graph/2022/03/24/Mighty-Graph.html"},"url":"https://blog.sysarch.in/algorithms/graph/2022/03/24/Mighty-Graph.html"}</script>
 <!-- End Jekyll SEO tag -->
 <link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://blog.sysarch.in/feed.xml" title="sysarch" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
@@ -73,7 +73,7 @@ window.onload = wrap_img;
         <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
 
   <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Build Graph</h1><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-24T00:00:00-05:00" itemprop="datePublished">
+    <h1 class="post-title p-name" itemprop="name headline">💪 Mighty Graph</h1><p class="page-description">A graph data structure is a collection of nodes that have data and are connected to other nodes.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-24T00:00:00-05:00" itemprop="datePublished">
         Mar 24, 2022
       </time>
        • <span class="read-time" title="Estimated read time">
@@ -83,6 +83,16 @@ window.onload = wrap_img;
     
 </span></p>
 
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#algorithms">algorithms</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#graph">graph</a>
+        
+      
+      </p>
     
 
     
@@ -116,7 +126,11 @@ window.onload = wrap_img;
       </header>
 
   <div class="post-content e-content" itemprop="articleBody">
-    <!--
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Build-Graph">Build Graph </a></li>
+<li class="toc-entry toc-h1"><a href="#Has-Path">Has Path </a></li>
+<li class="toc-entry toc-h1"><a href="#All-Path">All Path </a></li>
+</ul><!--
 #################################################
 ### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
 #################################################
@@ -125,6 +139,15 @@ window.onload = wrap_img;
 
 <div class="container" id="notebook-container">
         
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Build-Graph">
+<a class="anchor" href="#Build-Graph" aria-hidden="true"><span class="octicon octicon-link"></span></a>Build Graph<a class="anchor-link" href="#Build-Graph"> </a>
+</h1>
+</div>
+</div>
+</div>
     
     
 <div class="cell border-box-sizing code_cell rendered">
@@ -195,9 +218,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Has-Path">Has Path<a class="anchor-link" href="#Has-Path"> </a></h1>
+<h1 id="Has-Path">
+<a class="anchor" href="#Has-Path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Has Path<a class="anchor-link" href="#Has-Path"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -249,9 +275,12 @@ window.onload = wrap_img;
 </div>
     
 
-<div class="cell border-box-sizing text_cell rendered"><div class="inner_cell">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="All-Path">All Path<a class="anchor-link" href="#All-Path"> </a></h1>
+<h1 id="All-Path">
+<a class="anchor" href="#All-Path" aria-hidden="true"><span class="octicon octicon-link"></span></a>All Path<a class="anchor-link" href="#All-Path"> </a>
+</h1>
 </div>
 </div>
 </div>
@@ -270,12 +299,12 @@ window.onload = wrap_img;
     <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">graph</span><span class="p">[</span><span class="n">src</span><span class="p">]:</span>
         <span class="n">nbr</span> <span class="o">=</span> <span class="n">path</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">visited</span><span class="p">[</span><span class="n">nbr</span><span class="p">]:</span>
-            <span class="n">allpath</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="n">nbr</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">psf</span><span class="o">+</span><span class="s2">&quot; &quot;</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">nbr</span><span class="p">))</span>
+            <span class="n">allpath</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="n">nbr</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">psf</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">nbr</span><span class="p">))</span>
     <span class="n">visited</span><span class="p">[</span><span class="n">src</span><span class="p">]</span> <span class="o">=</span> <span class="kc">False</span>
 <span class="n">src</span> <span class="o">=</span> <span class="mi">0</span>
 <span class="n">dest</span> <span class="o">=</span> <span class="mi">6</span>
 <span class="n">visited</span> <span class="o">=</span> <span class="p">[</span><span class="kc">False</span><span class="p">]</span> <span class="o">*</span> <span class="n">vertices</span>
-<span class="n">allpath</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="n">src</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="s2">&quot;0&quot;</span><span class="p">)</span>
+<span class="n">allpath</span><span class="p">(</span><span class="n">graph</span><span class="p">,</span><span class="n">src</span><span class="p">,</span><span class="n">dest</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="s2">"0"</span><span class="p">)</span>
 </pre></div>
 
     </div>
@@ -306,7 +335,15 @@ window.onload = wrap_img;
 
 
 
-  </div><a class="u-url" href="/2022/03/24/Mighty-Graph.html" hidden></a>
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tpriyanshukrishnan/sysarch"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/algorithms/graph/2022/03/24/Mighty-Graph.html" hidden></a>
 </article>
 
       </div>
