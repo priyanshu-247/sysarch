@@ -1,0 +1,1520 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="twitter:card" content="summary_large_image" /><!-- Begin Jekyll SEO tag v2.8.0 -->
+<title>🪐 Welcome to World Of Programming Inceptions | sysarch</title>
+<meta name="generator" content="Jekyll v4.1.1" />
+<meta property="og:title" content="🪐 Welcome to World Of Programming Inceptions" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Recursion is a programming technique using function or algorithm that calls itself one or more times until a specified condition is met at which time the rest of each repetition is processed from the last one called to the first." />
+<meta property="og:description" content="Recursion is a programming technique using function or algorithm that calls itself one or more times until a specified condition is met at which time the rest of each repetition is processed from the last one called to the first." />
+<link rel="canonical" href="https://blog.sysarch.in/algorithms/recursion/2022/03/17/Recursion_&_Backtracking.html" />
+<meta property="og:url" content="https://blog.sysarch.in/algorithms/recursion/2022/03/17/Recursion_&_Backtracking.html" />
+<meta property="og:site_name" content="sysarch" />
+<meta property="og:type" content="article" />
+<meta property="article:published_time" content="2022-03-17T00:00:00-05:00" />
+<meta name="twitter:card" content="summary" />
+<meta property="twitter:title" content="🪐 Welcome to World Of Programming Inceptions" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"BlogPosting","dateModified":"2022-03-17T00:00:00-05:00","datePublished":"2022-03-17T00:00:00-05:00","description":"Recursion is a programming technique using function or algorithm that calls itself one or more times until a specified condition is met at which time the rest of each repetition is processed from the last one called to the first.","headline":"🪐 Welcome to World Of Programming Inceptions","mainEntityOfPage":{"@type":"WebPage","@id":"https://blog.sysarch.in/algorithms/recursion/2022/03/17/Recursion_&_Backtracking.html"},"url":"https://blog.sysarch.in/algorithms/recursion/2022/03/17/Recursion_&_Backtracking.html"}</script>
+<!-- End Jekyll SEO tag -->
+<link rel="stylesheet" href="/assets/css/style.css"><link type="application/atom+xml" rel="alternate" href="https://blog.sysarch.in/feed.xml" title="sysarch" /><link rel="shortcut icon" type="image/x-icon" href="/images/favicon.ico"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Primer/15.2.0/primer.css" integrity="sha512-xTz2ys4coGAOz8vuV1NcQBkgVmKhsSEtjbqyMJbBHRplFuvKIUo6xhLHpAyPt9mfR6twHJgn9OgVLuqOvjeBhg==" crossorigin="anonymous" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" integrity="sha512-1PKOgIY59xJ8Co8+NE6FZ+LOAZKjy+KY8iq0G4B3CyeY6wYHN3yt9PW0XpSriVlkMXe40PTKnXrLnZ9+fkDaog==" crossorigin="anonymous" />
+
+<script>
+function wrap_img(fn) {
+    if (document.attachEvent ? document.readyState === "complete" : document.readyState !== "loading") {
+        var elements = document.querySelectorAll(".post img");
+        Array.prototype.forEach.call(elements, function(el, i) {
+            if (el.getAttribute("title") && (el.className != "emoji")) {
+                const caption = document.createElement('figcaption');
+                var node = document.createTextNode(el.getAttribute("title"));
+                caption.appendChild(node);
+                const wrapper = document.createElement('figure');
+                wrapper.className = 'image';
+                el.parentNode.insertBefore(wrapper, el);
+                el.parentNode.removeChild(el);
+                wrapper.appendChild(el);
+                wrapper.appendChild(caption);
+            }
+        });
+    } else { document.addEventListener('DOMContentLoaded', fn); }
+}
+window.onload = wrap_img;
+</script>
+
+<script>
+    document.addEventListener("DOMContentLoaded", function(){
+    // add link icon to anchor tags
+    var elem = document.querySelectorAll(".anchor-link")
+    elem.forEach(e => (e.innerHTML = '<i class="fas fa-link fa-xs"></i>'));
+    });
+</script>
+</head>
+<body><header class="site-header">
+
+  <div class="wrapper"><a class="site-title" rel="author" href="/">sysarch</a><nav class="site-nav">
+        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
+        <label for="nav-trigger">
+          <span class="menu-icon">
+            <svg viewBox="0 0 18 15" width="18px" height="15px">
+              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
+            </svg>
+          </span>
+        </label>
+
+        <div class="trigger"><a class="page-link" href="/about/">About Me</a><a class="page-link" href="/search/">Search</a><a class="page-link" href="/categories/">Tags</a></div>
+      </nav></div>
+</header>
+<main class="page-content" aria-label="Content">
+      <div class="wrapper">
+        <article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+
+  <header class="post-header">
+    <h1 class="post-title p-name" itemprop="name headline">🪐 Welcome to World Of Programming Inceptions</h1><p class="page-description">Recursion is a programming technique using function or algorithm that calls itself one or more times until a specified condition is met at which time the rest of each repetition is processed from the last one called to the first.</p><p class="post-meta post-meta-title"><time class="dt-published" datetime="2022-03-17T00:00:00-05:00" itemprop="datePublished">
+        Mar 17, 2022
+      </time>
+       • <span class="read-time" title="Estimated read time">
+    
+    
+      7 min read
+    
+</span></p>
+
+    
+      <p class="category-tags"><i class="fas fa-tags category-tags-icon"></i></i> 
+      
+        <a class="category-tags-link" href="/categories/#algorithms">algorithms</a>
+        &nbsp;
+      
+        <a class="category-tags-link" href="/categories/#recursion">recursion</a>
+        
+      
+      </p>
+    
+
+    
+      
+        <div class="pb-5 d-flex flex-justify-center">
+          <div class="px-2">
+
+    <a href="https://github.com/tpriyanshukrishnan/sysarch/tree/master/_notebooks/2022-03-17-Recursion_&_Backtracking.ipynb" role="button" target="_blank">
+<img class="notebook-badge-image" src="/assets/badges/github.svg" alt="View On GitHub">
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://mybinder.org/v2/gh/tpriyanshukrishnan/sysarch/master?filepath=_notebooks%2F2022-03-17-Recursion_%26_Backtracking.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/binder.svg" alt="Open In Binder"/>
+    </a>
+</div>
+
+          <div class="px-2">
+    <a href="https://colab.research.google.com/github/tpriyanshukrishnan/sysarch/blob/master/_notebooks/2022-03-17-Recursion_&_Backtracking.ipynb" target="_blank">
+        <img class="notebook-badge-image" src="/assets/badges/colab.svg" alt="Open In Colab"/>
+    </a>
+</div>
+          <div class="px-2">
+  <a href="https://deepnote.com/launch?url=https%3A%2F%2Fgithub.com%2Ftpriyanshukrishnan%2Fsysarch%2Fblob%2Fmaster%2F_notebooks%2F2022-03-17-Recursion_%26_Backtracking.ipynb" target="_blank">
+      <img class="notebook-badge-image" src="/assets/badges/deepnote.svg" alt="Launch in Deepnote"/>
+  </a>
+</div>
+
+        </div>
+      </header>
+
+  <div class="post-content e-content" itemprop="articleBody">
+    <ul id="toc" class="section-nav">
+<li class="toc-entry toc-h1"><a href="#Recursion-Thinking-Pattern">Recursion Thinking Pattern </a>
+<ul>
+<li class="toc-entry toc-h2"><a href="#High-Level-Thinking">High Level Thinking </a></li>
+<li class="toc-entry toc-h2"><a href="#Low-Level-Thinking">Low Level Thinking </a></li>
+</ul>
+</li>
+<li class="toc-entry toc-h1"><a href="#Print-Decreasing-Order">Print Decreasing Order </a></li>
+<li class="toc-entry toc-h1"><a href="#Print-Increasing-Order">Print Increasing Order </a></li>
+<li class="toc-entry toc-h1"><a href="#Print-Decreasing-&-Increasing-Order">Print Decreasing &amp; Increasing Order </a></li>
+<li class="toc-entry toc-h1"><a href="#Factorial">Factorial </a></li>
+<li class="toc-entry toc-h1"><a href="#Power-(Linear)">Power (Linear) </a></li>
+<li class="toc-entry toc-h1"><a href="#Power-(Log)">Power (Log) </a></li>
+<li class="toc-entry toc-h1"><a href="#Zig-Zag-Recursion">Zig Zag Recursion </a></li>
+<li class="toc-entry toc-h1"><a href="#Tower-of-hanoi">Tower of hanoi </a></li>
+<li class="toc-entry toc-h1"><a href="#Display-Array">Display Array </a></li>
+<li class="toc-entry toc-h1"><a href="#Display-reverse-array">Display reverse array </a></li>
+<li class="toc-entry toc-h1"><a href="#Maximum-in-array">Maximum in array </a></li>
+<li class="toc-entry toc-h1"><a href="#First-occurencenc-in-array">First occurencenc in array </a></li>
+<li class="toc-entry toc-h1"><a href="#Last-Occurencenc-in-array">Last Occurencenc in array </a></li>
+<li class="toc-entry toc-h1"><a href="#All-Index-of-element-in-array">All Index of element in array </a></li>
+<li class="toc-entry toc-h1"><a href="#Get-Subsequence">Get Subsequence </a></li>
+<li class="toc-entry toc-h1"><a href="#Keypad-Combination">Keypad Combination </a></li>
+<li class="toc-entry toc-h1"><a href="#Get-Stairs-Path">Get Stairs Path </a></li>
+<li class="toc-entry toc-h1"><a href="#Get-Maze-Path">Get Maze Path </a></li>
+<li class="toc-entry toc-h1"><a href="#Get-Maze-Path-with-jumps">Get Maze Path with jumps </a></li>
+<li class="toc-entry toc-h1"><a href="#Permutation-Of-String">Permutation Of String </a></li>
+<li class="toc-entry toc-h1"><a href="#Flood-Fill">Flood Fill </a></li>
+<li class="toc-entry toc-h1"><a href="#Target-Sum-Subset">Target Sum Subset </a></li>
+<li class="toc-entry toc-h1"><a href="#N-Queeen-Problem">N-Queeen Problem </a></li>
+<li class="toc-entry toc-h1"><a href="#Knight-Tour">Knight Tour </a></li>
+</ul><!--
+#################################################
+### THIS FILE WAS AUTOGENERATED! DO NOT EDIT! ###
+#################################################
+# file to edit: _notebooks/2022-03-17-Recursion_&_Backtracking.ipynb
+-->
+
+<div class="container" id="notebook-container">
+        
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Recursion-Thinking-Pattern">
+<a class="anchor" href="#Recursion-Thinking-Pattern" aria-hidden="true"><span class="octicon octicon-link"></span></a>Recursion Thinking Pattern<a class="anchor-link" href="#Recursion-Thinking-Pattern"> </a>
+</h1>
+<h2 id="High-Level-Thinking">
+<a class="anchor" href="#High-Level-Thinking" aria-hidden="true"><span class="octicon octicon-link"></span></a>High Level Thinking<a class="anchor-link" href="#High-Level-Thinking"> </a>
+</h2>
+<ul>
+<li>Set <strong>Expectation</strong>. </li>
+<li>Built <strong>Faith</strong>.</li>
+<li>Link <strong>Expectation &amp; Faith</strong> together.</li>
+</ul>
+<h2 id="Low-Level-Thinking">
+<a class="anchor" href="#Low-Level-Thinking" aria-hidden="true"><span class="octicon octicon-link"></span></a>Low Level Thinking<a class="anchor-link" href="#Low-Level-Thinking"> </a>
+</h2>
+<ul>
+<li>Do <strong>Dry Run</strong>.</li>
+<li>Trace <strong>Stack</strong> for base case.</li>
+</ul>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Print-Decreasing-Order">
+<a class="anchor" href="#Print-Decreasing-Order" aria-hidden="true"><span class="octicon octicon-link"></span></a>Print Decreasing Order<a class="anchor-link" href="#Print-Decreasing-Order"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">pdo</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="c1"># Please Stop, Now you may go into hell [RecursionError: maximum recursion depth exceeded]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+  <span class="n">pdo</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">pdo</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5 | 4 | 3 | 2 | 1 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Print-Increasing-Order">
+<a class="anchor" href="#Print-Increasing-Order" aria-hidden="true"><span class="octicon octicon-link"></span></a>Print Increasing Order<a class="anchor-link" href="#Print-Increasing-Order"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">pio</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="n">pio</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+  
+<span class="n">pio</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 | 2 | 3 | 4 | 5 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Print-Decreasing-&amp;-Increasing-Order">
+<a class="anchor" href="#Print-Decreasing-&amp;-Increasing-Order" aria-hidden="true"><span class="octicon octicon-link"></span></a>Print Decreasing &amp; Increasing Order<a class="anchor-link" href="#Print-Decreasing-&amp;-Increasing-Order"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">pdio</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+  <span class="n">pdio</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+<span class="n">pdio</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5 | 4 | 3 | 2 | 1 | 1 | 2 | 3 | 4 | 5 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Factorial">
+<a class="anchor" href="#Factorial" aria-hidden="true"><span class="octicon octicon-link"></span></a>Factorial<a class="anchor-link" href="#Factorial"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">fact</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">n</span><span class="o">*</span><span class="n">fact</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">fact</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>120</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Power-(Linear)">
+<a class="anchor" href="#Power-(Linear)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Power (Linear)<a class="anchor-link" href="#Power-(Linear)"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">1</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="n">power</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">power</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Power-(Log)">
+<a class="anchor" href="#Power-(Log)" aria-hidden="true"><span class="octicon octicon-link"></span></a>Power (Log)<a class="anchor-link" href="#Power-(Log)"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">powlog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="mi">1</span>
+  <span class="n">loc_pow</span> <span class="o">=</span> <span class="n">powlog</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">n</span><span class="o">/</span><span class="mi">2</span><span class="p">))</span>
+  <span class="n">loc_pow</span> <span class="o">*=</span> <span class="n">loc_pow</span>
+  <span class="k">if</span> <span class="n">n</span><span class="o">%</span><span class="mi">2</span> <span class="o">!=</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="n">loc_pow</span> <span class="o">=</span> <span class="n">loc_pow</span> <span class="o">*</span> <span class="n">x</span>
+  <span class="k">return</span> <span class="n">loc_pow</span>
+<span class="n">powlog</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Zig-Zag-Recursion">
+<a class="anchor" href="#Zig-Zag-Recursion" aria-hidden="true"><span class="octicon octicon-link"></span></a>Zig Zag Recursion<a class="anchor-link" href="#Zig-Zag-Recursion"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">zigzag</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="k">return</span> 
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"zig "</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+  <span class="n">zigzag</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"dot "</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+  <span class="n">zigzag</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="s2">"zag "</span><span class="p">,</span><span class="n">n</span><span class="p">)</span>
+<span class="n">zigzag</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>zig  2
+zig  1
+dot  1
+zag  1
+dot  2
+zig  1
+dot  1
+zag  1
+zag  2
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Tower-of-hanoi">
+<a class="anchor" href="#Tower-of-hanoi" aria-hidden="true"><span class="octicon octicon-link"></span></a>Tower of hanoi<a class="anchor-link" href="#Tower-of-hanoi"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">toh</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">t3</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="n">toh</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="n">t3</span><span class="p">,</span><span class="n">t2</span><span class="p">)</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="s2">"[ "</span><span class="p">,</span><span class="n">t1</span><span class="p">,</span><span class="s2">"-&gt;"</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="s2">" ]"</span><span class="p">,</span><span class="n">end</span> <span class="o">=</span><span class="s2">" : "</span><span class="p">)</span>
+  <span class="n">toh</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">t3</span><span class="p">,</span><span class="n">t2</span><span class="p">,</span><span class="n">t1</span><span class="p">)</span>
+<span class="n">toh</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s2">"A"</span><span class="p">,</span><span class="s2">"B"</span><span class="p">,</span><span class="s2">"C"</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 [  A -&gt; B  ] : 2 [  A -&gt; C  ] : 1 [  B -&gt; C  ] : 3 [  A -&gt; B  ] : 1 [  C -&gt; A  ] : 2 [  C -&gt; B  ] : 1 [  A -&gt; B  ] : </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Display-Array">
+<a class="anchor" href="#Display-Array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Display Array<a class="anchor-link" href="#Display-Array"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">disarr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">return</span> 
+  <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+  <span class="n">disarr</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">disarr</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>1 | 2 | 3 | 4 | 5 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Display-reverse-array">
+<a class="anchor" href="#Display-reverse-array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Display reverse array<a class="anchor-link" href="#Display-reverse-array"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">disrev</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">):</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="n">idx</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+  <span class="n">disrev</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">disrev</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">5</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>5 | 4 | 3 | 2 | 1 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Maximum-in-array">
+<a class="anchor" href="#Maximum-in-array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Maximum in array<a class="anchor-link" href="#Maximum-in-array"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">maxi</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">):</span>
+  <span class="n">n</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="n">n</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> 
+  <span class="k">elif</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+    <span class="n">arr</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span><span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">=</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span> <span class="n">arr</span><span class="p">[</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+  <span class="nb">print</span><span class="p">(</span><span class="n">idx</span><span class="p">,</span><span class="s2">":"</span><span class="p">,</span><span class="n">arr</span><span class="p">)</span>
+  <span class="n">maxi</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">maxipro</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="mi">0</span>
+  <span class="n">loc_mx</span> <span class="o">=</span> <span class="n">maxipro</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">loc_mx</span> <span class="o">&gt;</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]:</span>
+    <span class="k">return</span> <span class="n">loc_mx</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span>
+<span class="n">maxipro</span><span class="p">([</span><span class="mi">9</span><span class="p">,</span><span class="mi">40</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">86</span><span class="p">,</span><span class="mi">12</span><span class="p">],</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>86</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="First-occurencenc-in-array">
+<a class="anchor" href="#First-occurencenc-in-array" aria-hidden="true"><span class="octicon octicon-link"></span></a>First occurencenc in array<a class="anchor-link" href="#First-occurencenc-in-array"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">foia</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">ele</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="n">loc_idx</span> <span class="o">=</span> <span class="n">foia</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ele</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">ele</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">idx</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">loc_idx</span>
+<span class="n">foia</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>3</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Last-Occurencenc-in-array">
+<a class="anchor" href="#Last-Occurencenc-in-array" aria-hidden="true"><span class="octicon octicon-link"></span></a>Last Occurencenc in array<a class="anchor-link" href="#Last-Occurencenc-in-array"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">loia</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">ele</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="o">-</span><span class="mi">1</span> 
+  <span class="n">loc_idx</span> <span class="o">=</span> <span class="n">loia</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ele</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">loc_idx</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">ele</span><span class="p">:</span>
+      <span class="k">return</span> <span class="n">idx</span>
+    <span class="k">else</span><span class="p">:</span>
+      <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">loc_idx</span>
+
+<span class="n">loia</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>8</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="All-Index-of-element-in-array">
+<a class="anchor" href="#All-Index-of-element-in-array" aria-hidden="true"><span class="octicon octicon-link"></span></a>All Index of element in array<a class="anchor-link" href="#All-Index-of-element-in-array"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">aiea</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">ele</span><span class="p">,</span><span class="n">fsf</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">return</span> <span class="p">[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">fsf</span><span class="p">)]</span>
+  <span class="n">lst</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">if</span> <span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]</span> <span class="o">==</span> <span class="n">ele</span><span class="p">:</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">aiea</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ele</span><span class="p">,</span><span class="n">fsf</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">lst</span><span class="p">[</span><span class="n">fsf</span><span class="p">]</span> <span class="o">=</span> <span class="n">idx</span>
+    <span class="k">return</span> <span class="n">lst</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">lst</span> <span class="o">=</span> <span class="n">aiea</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ele</span><span class="p">,</span><span class="n">fsf</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">lst</span>  
+    
+
+<span class="nb">print</span><span class="p">(</span><span class="n">aiea</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">4</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[5, 8]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Get-Subsequence">
+<a class="anchor" href="#Get-Subsequence" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Subsequence<a class="anchor-link" href="#Get-Subsequence"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">getsub</span><span class="p">(</span><span class="n">word</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
+  <span class="n">ch</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">ls</span> <span class="o">=</span> <span class="n">getsub</span><span class="p">(</span><span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+  <span class="n">lt</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+    <span class="n">lt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">""</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+    <span class="n">lt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">ch</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">lt</span>
+<span class="n">getsub</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">)</span>
+
+<span class="c1"># Low Memory Usage Method</span>
+<span class="k">def</span> <span class="nf">getsublow</span><span class="p">(</span><span class="n">word</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">word</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="n">ch</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">wd</span> <span class="o">=</span> <span class="n">word</span><span class="p">[</span><span class="mi">1</span><span class="p">:]</span>
+  <span class="n">getsublow</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+</span> <span class="s2">""</span><span class="p">)</span>
+  <span class="n">getsublow</span><span class="p">(</span><span class="n">wd</span><span class="p">,</span> <span class="n">ans</span> <span class="o">+</span> <span class="n">ch</span><span class="p">)</span>
+<span class="n">getsublow</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> | c | b | bc | a | ac | ab | abc | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Keypad-Combination">
+<a class="anchor" href="#Keypad-Combination" aria-hidden="true"><span class="octicon octicon-link"></span></a>Keypad Combination<a class="anchor-link" href="#Keypad-Combination"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="n">keypad</span> <span class="o">=</span> <span class="p">[</span><span class="s2">",!"</span><span class="p">,</span><span class="s2">"abc"</span><span class="p">,</span><span class="s2">"def"</span><span class="p">,</span><span class="s2">"ghi"</span><span class="p">,</span><span class="s2">"jkl"</span><span class="p">,</span><span class="s2">"mno"</span><span class="p">,</span><span class="s2">"pqrs"</span><span class="p">,</span><span class="s2">"tu"</span><span class="p">,</span><span class="s2">"vwx"</span><span class="p">,</span><span class="s2">"yz"</span><span class="p">]</span>
+<span class="c1"># Heavy In-Memory Usage Method</span>
+<span class="k">def</span> <span class="nf">keycomb</span><span class="p">(</span><span class="n">press</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">press</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
+  <span class="n">ch</span> <span class="o">=</span> <span class="n">press</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">ls</span> <span class="o">=</span> <span class="n">keycomb</span><span class="p">(</span><span class="n">press</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+  <span class="n">lt</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">word</span> <span class="o">=</span> <span class="n">keypad</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">)]</span>
+  <span class="k">for</span> <span class="n">w</span> <span class="ow">in</span> <span class="n">word</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">l</span> <span class="ow">in</span> <span class="n">ls</span><span class="p">:</span>
+      <span class="n">lt</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">w</span> <span class="o">+</span> <span class="n">l</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">lt</span>
+<span class="n">keycomb</span><span class="p">(</span><span class="s2">"157"</span><span class="p">)</span>
+
+<span class="c1"># Low In-Memory Usage Method</span>
+<span class="k">def</span> <span class="nf">keycomp2</span><span class="p">(</span><span class="n">press</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">press</span> <span class="o">==</span> <span class="s2">""</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+    <span class="k">return</span> 
+  <span class="n">ch</span> <span class="o">=</span> <span class="n">press</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+  <span class="n">keys</span> <span class="o">=</span> <span class="n">keypad</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">ch</span><span class="p">)]</span>
+  <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys</span><span class="p">:</span>
+    <span class="n">keycomp2</span><span class="p">(</span><span class="n">press</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span><span class="n">ans</span> <span class="o">+</span> <span class="n">k</span><span class="p">)</span>
+<span class="n">keycomp2</span><span class="p">(</span><span class="s2">"157"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>amt | amu | ant | anu | aot | aou | bmt | bmu | bnt | bnu | bot | bou | cmt | cmu | cnt | cnu | cot | cou | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Get-Stairs-Path">
+<a class="anchor" href="#Get-Stairs-Path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Stairs Path<a class="anchor-link" href="#Get-Stairs-Path"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">gsp</span><span class="p">(</span><span class="n">n</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
+  <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[]</span>
+  <span class="n">p1</span> <span class="o">=</span> <span class="n">gsp</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">p2</span> <span class="o">=</span> <span class="n">gsp</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">2</span><span class="p">)</span>
+  <span class="n">p3</span> <span class="o">=</span> <span class="n">gsp</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">3</span><span class="p">)</span>
+  <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">p1</span><span class="p">:</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"1"</span><span class="o">+</span><span class="n">i</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">p2</span><span class="p">:</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"2"</span><span class="o">+</span><span class="n">j</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">p3</span><span class="p">:</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s2">"3"</span><span class="o">+</span><span class="n">k</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">ls</span>
+<span class="n">gsp</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Low In-Memory Usage Method</span>
+<span class="k">def</span> <span class="nf">gsp2</span><span class="p">(</span><span class="n">n</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="k">elif</span> <span class="n">n</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">4</span><span class="p">):</span>
+    <span class="n">gsp2</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="n">i</span><span class="p">,</span><span class="n">ans</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">))</span>
+
+<span class="n">gsp2</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>111 | 12 | 21 | 3 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Get-Maze-Path">
+<a class="anchor" href="#Get-Maze-Path" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Maze Path<a class="anchor-link" href="#Get-Maze-Path"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">gmp</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">sr</span> <span class="o">==</span> <span class="n">dr</span> <span class="ow">and</span> <span class="n">sc</span> <span class="o">==</span> <span class="n">dc</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
+  <span class="n">hp</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="n">vp</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">if</span> <span class="n">sc</span> <span class="o">&lt;</span> <span class="n">dc</span><span class="p">:</span>
+    <span class="n">hp</span> <span class="o">=</span> <span class="n">gmp</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">sr</span> <span class="o">&lt;</span> <span class="n">dr</span><span class="p">:</span>
+    <span class="n">vp</span> <span class="o">=</span> <span class="n">gmp</span><span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">)</span>
+  <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hp</span><span class="p">:</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'h'</span><span class="o">+</span> <span class="n">h</span><span class="p">)</span>
+  <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vp</span><span class="p">:</span>
+    <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'v'</span><span class="o">+</span> <span class="n">v</span><span class="p">)</span>
+  <span class="k">return</span> <span class="n">ls</span>
+<span class="n">gmp</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Low In-Memory Usage Method</span>
+<span class="k">def</span> <span class="nf">gmp2</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">sc</span> <span class="o">&gt;</span> <span class="n">dc</span> <span class="ow">or</span> <span class="n">sr</span> <span class="o">&gt;</span> <span class="n">dr</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="k">if</span> <span class="n">sr</span> <span class="o">==</span> <span class="n">dr</span> <span class="ow">and</span> <span class="n">sc</span> <span class="o">==</span> <span class="n">dc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+    <span class="k">return</span> 
+  <span class="n">gmp2</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span> <span class="o">+</span> <span class="s1">'h'</span><span class="p">)</span>
+  <span class="n">gmp2</span><span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span> <span class="o">+</span> <span class="s1">'v'</span><span class="p">)</span>
+<span class="n">gmp2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>hhvv | hvhv | hvvh | vhhv | vhvh | vvhh | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Get-Maze-Path-with-jumps">
+<a class="anchor" href="#Get-Maze-Path-with-jumps" aria-hidden="true"><span class="octicon octicon-link"></span></a>Get Maze Path with jumps<a class="anchor-link" href="#Get-Maze-Path-with-jumps"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">gmpj</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">sr</span> <span class="o">==</span> <span class="n">dr</span> <span class="ow">and</span> <span class="n">sc</span> <span class="o">==</span> <span class="n">dc</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">[</span><span class="s2">""</span><span class="p">]</span>
+  <span class="n">ls</span> <span class="o">=</span> <span class="p">[]</span>
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="n">dc</span><span class="o">-</span><span class="n">sc</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">hpaths</span> <span class="o">=</span> <span class="n">gmpj</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="o">+</span><span class="n">i</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">hp</span> <span class="ow">in</span> <span class="n">hpaths</span><span class="p">:</span>
+      <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'h'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">i</span><span class="p">)</span><span class="o">+</span><span class="n">hp</span><span class="p">)</span> <span class="c1"># horizontal</span>
+  <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,(</span><span class="n">dr</span><span class="o">-</span><span class="n">sr</span><span class="p">)</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">vpaths</span> <span class="o">=</span> <span class="n">gmpj</span><span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="n">k</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">vp</span> <span class="ow">in</span> <span class="n">vpaths</span><span class="p">:</span>
+      <span class="n">ls</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="s1">'v'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">k</span><span class="p">)</span><span class="o">+</span><span class="n">vp</span><span class="p">)</span> <span class="c1"># vertical </span>
+  <span class="k">return</span> <span class="n">ls</span>
+
+<span class="n">gmpj</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># Low In-Memory Usage Method</span>
+<span class="k">def</span> <span class="nf">gmpj2</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">sr</span> <span class="o">&gt;</span> <span class="n">dr</span> <span class="ow">or</span> <span class="n">sc</span> <span class="o">&gt;</span> <span class="n">dc</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="k">if</span> <span class="n">sr</span> <span class="o">==</span> <span class="n">dr</span> <span class="ow">and</span> <span class="n">sc</span> <span class="o">==</span> <span class="n">dc</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span> <span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+    <span class="k">return</span> 
+  <span class="n">hmove</span> <span class="o">=</span> <span class="n">dc</span> <span class="o">-</span> <span class="n">sc</span>
+  <span class="n">vmove</span> <span class="o">=</span> <span class="n">dr</span> <span class="o">-</span> <span class="n">sc</span>
+  <span class="n">d</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">hmove</span> <span class="o">+</span> <span class="mi">1</span><span class="p">):</span>
+    <span class="n">gmpj2</span><span class="p">(</span><span class="n">sr</span><span class="p">,</span><span class="n">sc</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s1">'h'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">h</span><span class="p">))</span>
+  <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="n">vmove</span> <span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+    <span class="n">gmpj2</span><span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">sc</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s1">'v'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">v</span><span class="p">))</span>
+  <span class="k">while</span><span class="p">(</span><span class="n">d</span> <span class="o">&lt;=</span> <span class="n">hmove</span> <span class="ow">and</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="n">vmove</span><span class="p">):</span>
+    <span class="n">gmpj2</span><span class="p">(</span><span class="n">sr</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">sc</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">dr</span><span class="p">,</span><span class="n">dc</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s1">'d'</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">d</span><span class="p">))</span>
+    <span class="n">d</span> <span class="o">+=</span><span class="mi">1</span>
+<span class="n">gmpj2</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>h1v1v1h1 | h1v1d1 | h2v1v1h1 | h2v1d1 | v1h1v1h1 | v1h1d1 | v1h2v1h1 | v1h2d1 | v1v1h1h1 | v1v1h2h1 | v1v2h1h1 | v1v2h2h1 | v1d1h1 | v1d2h1 | v2h1v1h1 | v2h1d1 | v2h2v1h1 | v2h2d1 | v2v1h1h1 | v2v1h2h1 | v2v2h1h1 | v2v2h2h1 | v2d1h1 | v2d2h1 | d1v1h1 | d1d1 | d2v1h1 | d2d1 | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Permutation-Of-String">
+<a class="anchor" href="#Permutation-Of-String" aria-hidden="true"><span class="octicon octicon-link"></span></a>Permutation Of String<a class="anchor-link" href="#Permutation-Of-String"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">pos</span><span class="p">(</span><span class="n">string</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">,</span><span class="n">end</span><span class="o">=</span><span class="s2">" | "</span><span class="p">)</span>
+    <span class="k">return</span> 
+  <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">string</span><span class="p">)):</span>
+    <span class="nb">chr</span> <span class="o">=</span> <span class="n">string</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">rem_string</span> <span class="o">=</span> <span class="n">string</span><span class="p">[:</span><span class="n">i</span><span class="p">]</span> <span class="o">+</span> <span class="n">string</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">:]</span>
+    <span class="n">pos</span><span class="p">(</span><span class="n">rem_string</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="nb">chr</span><span class="p">)</span>
+<span class="n">pos</span><span class="p">(</span><span class="s2">"abc"</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>abc | acb | bac | bca | cab | cba | </pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Flood-Fill">
+<a class="anchor" href="#Flood-Fill" aria-hidden="true"><span class="octicon octicon-link"></span></a>Flood Fill<a class="anchor-link" href="#Flood-Fill"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">floodfill</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">r</span><span class="p">,</span><span class="n">c</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">r</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">r</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">maze</span><span class="p">)</span> <span class="ow">or</span> <span class="n">c</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">maze</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="ow">or</span> <span class="n">maze</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span> <span class="ow">or</span> <span class="n">visited</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="k">if</span> <span class="n">r</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">maze</span><span class="p">)</span> <span class="o">-</span> <span class="mi">1</span> <span class="ow">and</span> <span class="n">c</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">maze</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span> <span class="o">-</span> <span class="mi">1</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="n">visited</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+  <span class="n">floodfill</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">r</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">c</span>  <span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s2">"t"</span><span class="p">)</span>
+  <span class="n">floodfill</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">r</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">c</span>  <span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s2">"d"</span><span class="p">)</span>
+  <span class="n">floodfill</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">r</span><span class="p">,</span>  <span class="n">c</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s2">"l"</span><span class="p">)</span>
+  <span class="n">floodfill</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="n">r</span>  <span class="p">,</span><span class="n">c</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s2">"t"</span><span class="p">)</span>
+  <span class="n">visited</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">c</span><span class="p">]</span><span class="o">=</span><span class="mi">0</span>
+
+<span class="n">visited</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+           <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">maze</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">1</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">],</span>
+        <span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">]]</span>
+<span class="n">floodfill</span><span class="p">(</span><span class="n">maze</span><span class="p">,</span><span class="n">visited</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>dtddt
+dtdtd
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Target-Sum-Subset">
+<a class="anchor" href="#Target-Sum-Subset" aria-hidden="true"><span class="octicon octicon-link"></span></a>Target Sum Subset<a class="anchor-link" href="#Target-Sum-Subset"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">tss</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="p">,</span><span class="n">sos</span><span class="p">,</span><span class="n">tar</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">idx</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">sos</span> <span class="o">==</span> <span class="n">tar</span><span class="p">:</span>
+      <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="k">return</span>
+  <span class="n">tss</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">sos</span><span class="o">+</span><span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">],</span><span class="n">tar</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">arr</span><span class="p">[</span><span class="n">idx</span><span class="p">]))</span>
+  <span class="n">tss</span><span class="p">(</span><span class="n">arr</span><span class="p">,</span><span class="n">idx</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">sos</span><span class="p">,</span><span class="n">tar</span><span class="p">,</span><span class="n">ans</span><span class="p">)</span>
+<span class="n">tss</span><span class="p">([</span><span class="mi">4</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">],</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> 4 6 2
+ 4 6 2
+ 6 1 2 3
+ 6 6
+ 1 6 2 3
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="N-Queeen-Problem">
+<a class="anchor" href="#N-Queeen-Problem" aria-hidden="true"><span class="octicon octicon-link"></span></a>N-Queeen Problem<a class="anchor-link" href="#N-Queeen-Problem"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">saveplace</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">):</span>
+  <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">r</span><span class="p">][</span><span class="n">col</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+       <span class="k">return</span> <span class="kc">False</span>
+  <span class="k">for</span> <span class="n">a</span><span class="p">,</span><span class="n">b</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">a</span><span class="p">][</span><span class="n">b</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+  <span class="k">for</span> <span class="n">c</span><span class="p">,</span><span class="n">d</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="nb">range</span><span class="p">(</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="o">-</span><span class="mi">1</span><span class="p">),</span><span class="nb">range</span><span class="p">(</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)):</span>
+    <span class="k">if</span> <span class="n">board</span><span class="p">[</span><span class="n">c</span><span class="p">][</span><span class="n">d</span><span class="p">]</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span> <span class="k">return</span> <span class="kc">False</span>
+  <span class="k">return</span> <span class="kc">True</span>
+<span class="k">def</span> <span class="nf">nqp</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="p">,</span><span class="n">ans</span><span class="p">):</span>
+  <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="o">==</span> <span class="n">row</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="n">ans</span><span class="p">)</span>
+    <span class="k">return</span> 
+  <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">[</span><span class="mi">0</span><span class="p">])):</span>
+    <span class="k">if</span> <span class="n">saveplace</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">):</span>
+      <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+      <span class="n">nqp</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">ans</span><span class="o">+</span><span class="s2">" "</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">row</span><span class="p">)</span><span class="o">+</span><span class="s2">"-"</span><span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+      <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+  
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">4</span>
+<span class="n">board</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">nqp</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="s2">""</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+<div class="output_area">
+
+<div class="output_subarea output_stream output_stdout output_text">
+<pre> 0-1 1-3 2-0 3-2
+ 0-1 1-3 2-2 3-0
+ 0-2 1-0 2-3 3-1
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+    
+
+<div class="cell border-box-sizing text_cell rendered">
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Knight-Tour">
+<a class="anchor" href="#Knight-Tour" aria-hidden="true"><span class="octicon octicon-link"></span></a>Knight Tour<a class="anchor-link" href="#Knight-Tour"> </a>
+</h1>
+</div>
+</div>
+</div>
+    
+    
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-python"><pre><span></span><span class="k">def</span> <span class="nf">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="n">move</span><span class="p">):</span>
+  <span class="k">if</span> <span class="n">row</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">col</span> <span class="o">&lt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">row</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="ow">or</span> <span class="n">col</span> <span class="o">&gt;=</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="ow">or</span> <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+    <span class="k">return</span> 
+  <span class="k">elif</span> <span class="n">move</span> <span class="o">==</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">)</span> <span class="o">*</span> <span class="nb">len</span><span class="p">(</span><span class="n">board</span><span class="p">):</span>
+    <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">move</span>
+    <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">return</span> 
+  <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">move</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">col</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">col</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">col</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">+</span><span class="mi">2</span><span class="p">,</span><span class="n">col</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">+</span><span class="mi">1</span><span class="p">,</span><span class="n">col</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">col</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="o">-</span><span class="mi">2</span><span class="p">,</span><span class="n">col</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="n">move</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+  <span class="n">board</span><span class="p">[</span><span class="n">row</span><span class="p">][</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+
+<span class="n">n</span> <span class="o">=</span> <span class="mi">5</span>
+<span class="n">row</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">col</span> <span class="o">=</span> <span class="mi">3</span>
+<span class="n">board</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">n</span><span class="p">)]</span>
+<span class="n">KnightTour</span><span class="p">(</span><span class="n">board</span><span class="p">,</span><span class="n">row</span><span class="p">,</span><span class="n">col</span><span class="p">,</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+
+    </div>
+</div>
+</div>
+
+</div>
+    
+
+</div>
+
+
+
+  </div><!-- from https://github.com/utterance/utterances -->
+<script src="https://utteranc.es/client.js"
+        repo="tpriyanshukrishnan/sysarch"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script><a class="u-url" href="/algorithms/recursion/2022/03/17/Recursion_&_Backtracking.html" hidden></a>
+</article>
+
+      </div>
+    </main><footer class="site-footer h-card">
+  <data class="u-url" href="/"></data>
+
+  <div class="wrapper">
+
+    <div class="footer-col-wrapper">
+      <div class="footer-col">
+        <p class="feed-subscribe">
+          <a href="/feed.xml">
+            <svg class="svg-icon orange">
+              <use xlink:href="/assets/minima-social-icons.svg#rss"></use>
+            </svg><span>Subscribe</span>
+          </a>
+        </p>
+      </div>
+      <div class="footer-col">
+        <p>blogging for system architecture for large scale.</p>
+      </div>
+    </div>
+
+    <div class="social-links"><ul class="social-media-list"><li><a rel="me" href="https://github.com/tpriyanshukrishnan" target="_blank" title="tpriyanshukrishnan"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#github"></use></svg></a></li><li><a rel="me" href="https://twitter.com/fastdotai" target="_blank" title="fastdotai"><svg class="svg-icon grey"><use xlink:href="/assets/minima-social-icons.svg#twitter"></use></svg></a></li></ul>
+</div>
+
+  </div>
+
+</footer>
+</body>
+
+</html>
