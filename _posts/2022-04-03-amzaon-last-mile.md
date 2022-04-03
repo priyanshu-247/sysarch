@@ -6,7 +6,7 @@ categories: [markdown]
 title: Amazon last mile challenge
 # image: images/post_img/post1.png
 comments: true 
-hide: true
+hide: false
 ---
 
 # problem 1
