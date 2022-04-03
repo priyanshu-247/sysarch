@@ -26,3 +26,31 @@ def loadbalance(job,k):
 loadbalance([2,4,3],100)
 ```
 
+
+# problem 2 
+
+
+
+```
+def party(guest,total_candle,time_burn,atleast_candle):
+    temp = 0 
+    while len(guest) > 0:
+        t = guest.pop(0)
+        if t < temp:
+            print(t,guest,total_candle)
+            continue
+        else:
+            temp = t + time_burn 
+            total_candle -= atleast_candle
+            
+        if total_candle < 0:
+            print("not possible")
+            return 
+        print(t,guest,total_candle)
+            
+guest = [5, 7, 9, 10, 12,18,30,50,56,78,85,87,89]
+total_candle = 15
+time_burn = 5
+atleast_candle = 2
+party(guest,total_candle,time_burn,atleast_candle)
+```
